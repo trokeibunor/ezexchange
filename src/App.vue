@@ -25,7 +25,9 @@
         </form>
       </div>
       <div class="avater">
-        <div class="login_btn"></div>
+        <router-link to="/login" class="login_btn">
+          <img src="./assets/images/login_icon.svg" alt="" srcset="" />
+        </router-link>
       </div>
     </div>
   </nav>
@@ -45,9 +47,13 @@ nav {
   display: grid;
   width: 100%;
   grid-template-columns: 20% auto;
+  margin-top: 20px;
   .logo {
-    justify-content: center;
+    display: grid;
+    grid-column: 1;
+    justify-content: flex-start;
     align-self: center;
+    margin-left: 48px;
   }
   .nav-bar {
     grid-column: 2;
@@ -70,7 +76,7 @@ nav {
       color: #006fe8;
       border-bottom: 2px #006fe8 solid;
       padding-bottom: 2px;
-      border-radius: 25px;
+      border-radius: 1px;
     }
   }
   #searchInput {
@@ -89,6 +95,19 @@ nav {
     border: none;
     top: 4px;
     right: 36px;
+    cursor: pointer;
+  }
+  .avater {
+    margin: auto 0rem;
+  }
+  .login_btn {
+    border-radius: 50px;
+    background: linear-gradient(0deg, #0155dc 38.39%, #006fe8 66.76%);
+    padding: 10px;
+
+    img {
+      margin: -3px 0px;
+    }
   }
 }
 </style>
