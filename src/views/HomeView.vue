@@ -1,4 +1,5 @@
 <template>
+  <nav-component />
   <div class="container">
     <div class="hero">
       <div class="text-section">
@@ -15,46 +16,8 @@
         <div class="coin-rack">
           <h4>Current tokens</h4>
           <div class="rack-holder">
-            <div class="coin-card">
-              <div class="content">
-                <div class="top">
-                  <img
-                    src="../assets/images/bitcoin_logo.svg"
-                    alt=""
-                    srcset=""
-                  />
-                  <p>Bitcoin</p>
-                  <img src="../assets/images/graph_icon.svg" alt="" srcset="" />
-                </div>
-                <div class="middle">
-                  <p class="small">Market Value</p>
-                  <h3>$37,320.34</h3>
-                </div>
-                <div class="bottom">
-                  <router-link to="#">View Rates </router-link>
-                </div>
-              </div>
-            </div>
-            <div class="coin-card">
-              <div class="content">
-                <div class="top">
-                  <img
-                    src="../assets/images/ethereum_logo.svg"
-                    alt=""
-                    srcset=""
-                  />
-                  <p>Ethereum</p>
-                  <img src="../assets/images/graph_icon.svg" alt="" srcset="" />
-                </div>
-                <div class="middle">
-                  <p class="small">Market Value</p>
-                  <h3>$3,320.34</h3>
-                </div>
-                <div class="bottom">
-                  <router-link to="#">View Rates </router-link>
-                </div>
-              </div>
-            </div>
+            <coincard-component />
+            <coincard-component />
             <router-link to="#" class="next-button">
               <img
                 src="../assets/images/mdi_chevron-right.svg"
@@ -206,102 +169,12 @@
         <router-link to=""> See Rates </router-link>
       </div>
       <div class="cards-section">
-        <div class="coin-card">
-          <div class="content">
-            <div class="top">
-              <img src="../assets/images/bitcoin_logo.svg" alt="" srcset="" />
-              <p>Bitcoin</p>
-              <img src="../assets/images/graph_icon.svg" alt="" srcset="" />
-            </div>
-            <div class="middle">
-              <p class="small">Market Value</p>
-              <h3>$37,320.34</h3>
-            </div>
-            <div class="bottom">
-              <router-link to="#">View Rates </router-link>
-            </div>
-          </div>
-        </div>
-        <div class="coin-card">
-          <div class="content">
-            <div class="top">
-              <img src="../assets/images/ethereum_logo.svg" alt="" srcset="" />
-              <p>Ethereum</p>
-              <img src="../assets/images/graph_icon.svg" alt="" srcset="" />
-            </div>
-            <div class="middle">
-              <p class="small">Market Value</p>
-              <h3>$3,320.34</h3>
-            </div>
-            <div class="bottom">
-              <router-link to="#">View Rates </router-link>
-            </div>
-          </div>
-        </div>
-        <div class="coin-card">
-          <div class="content">
-            <div class="top">
-              <img src="../assets/images/bitcoin_logo.svg" alt="" srcset="" />
-              <p>Bitcoin</p>
-              <img src="../assets/images/graph_icon.svg" alt="" srcset="" />
-            </div>
-            <div class="middle">
-              <p class="small">Market Value</p>
-              <h3>$37,320.34</h3>
-            </div>
-            <div class="bottom">
-              <router-link to="#">View Rates </router-link>
-            </div>
-          </div>
-        </div>
-        <div class="coin-card">
-          <div class="content">
-            <div class="top">
-              <img src="../assets/images/ethereum_logo.svg" alt="" srcset="" />
-              <p>Ethereum</p>
-              <img src="../assets/images/graph_icon.svg" alt="" srcset="" />
-            </div>
-            <div class="middle">
-              <p class="small">Market Value</p>
-              <h3>$3,320.34</h3>
-            </div>
-            <div class="bottom">
-              <router-link to="#">View Rates </router-link>
-            </div>
-          </div>
-        </div>
-        <div class="coin-card">
-          <div class="content">
-            <div class="top">
-              <img src="../assets/images/bitcoin_logo.svg" alt="" srcset="" />
-              <p>Bitcoin</p>
-              <img src="../assets/images/graph_icon.svg" alt="" srcset="" />
-            </div>
-            <div class="middle">
-              <p class="small">Market Value</p>
-              <h3>$37,320.34</h3>
-            </div>
-            <div class="bottom">
-              <router-link to="#">View Rates </router-link>
-            </div>
-          </div>
-        </div>
-        <div class="coin-card">
-          <div class="content">
-            <div class="top">
-              <img src="../assets/images/ethereum_logo.svg" alt="" srcset="" />
-              <p>Ethereum</p>
-              <img src="../assets/images/graph_icon.svg" alt="" srcset="" />
-            </div>
-            <div class="middle">
-              <p class="small">Market Value</p>
-              <h3>$3,320.34</h3>
-            </div>
-            <div class="bottom">
-              <router-link to="#">View Rates </router-link>
-            </div>
-          </div>
-        </div>
+        <coincard-component />
+        <coincard-component />
+        <coincard-component />
+        <coincard-component />
+        <coincard-component />
+        <coincard-component />
       </div>
     </div>
   </div>
@@ -472,220 +345,214 @@
 </template>
 
 <script>
+import navComponent from "../components/Nav-component.vue";
 import footerComponent from "../components/Footer-component.vue";
+import coincardComponent from "../components/Coincard-component.vue";
 export default {
   name: "HomeView",
   components: {
+    navComponent,
     footerComponent,
+    coincardComponent,
   },
 };
 </script>
-<style lang="scss">
-.container {
-  width: 90%;
-  margin: 0px auto;
-  .hero {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin: 1.5rem 0px;
-    padding: 0px;
-    .text-section {
-      width: 100%;
-      justify-content: center;
-      align-items: center;
-      grid-column: 1;
-      text-align: left;
-      h1 {
-        width: 70%;
-        font-size: 48px;
-        line-height: 120%;
-        background: linear-gradient(267deg, #0f64c1 1.56%, #152a41 111.22%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        text-fill-color: transparent;
+<style lang="scss" scoped>
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 1.5rem 0px;
+  padding: 0px;
+  .text-section {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    grid-column: 1;
+    text-align: left;
+    h1 {
+      width: 70%;
+      font-size: 48px;
+      line-height: 120%;
+      background: linear-gradient(267deg, #0f64c1 1.56%, #152a41 111.22%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+    p {
+      width: 75%;
+      margin-bottom: 32px;
+    }
+    .btn-rack {
+      display: flex;
+      flex-direction: row;
+      margin: 32px 0px;
+      a {
+        width: auto;
+        margin-right: 24px;
+        height: 48px;
+        font-style: normal;
+        text-decoration: none;
+        font-weight: 600;
+        padding: 4px 32px;
+        font-size: 20px;
+        line-height: auto;
+        display: flex;
+        align-items: center;
+        border-radius: 10px;
+        color: #ffffff;
+        &:first-of-type {
+          background: linear-gradient(0deg, #0155dc 38.39%, #006fe8 66.76%);
+          padding: 4px 32px;
+        }
+        &:nth-child(2) {
+          background: #fff;
+          border: 0.125rem #006fe8 solid;
+          color: #006fe8;
+          padding: 2px 32px;
+        }
       }
-      p {
-        width: 75%;
-        margin-bottom: 32px;
+    }
+    .coin-rack {
+      margin-top: 16px;
+      h4 {
+        color: #938ba1;
       }
-      .btn-rack {
+      .rack-holder {
         display: flex;
         flex-direction: row;
-        margin: 32px 0px;
-        a {
-          width: auto;
-          margin-right: 24px;
-          height: 48px;
-          font-style: normal;
-          text-decoration: none;
-          font-weight: 600;
-          padding: 4px 32px;
-          font-size: 20px;
-          line-height: auto;
-          display: flex;
-          align-items: center;
+        .coin-card {
+          width: 11rem;
+          height: 11rem;
+          background: #ffffff;
+          box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25);
           border-radius: 10px;
-          color: #ffffff;
-          &:first-of-type {
-            background: linear-gradient(0deg, #0155dc 38.39%, #006fe8 66.76%);
-            padding: 4px 32px;
-          }
-          &:nth-child(2) {
-            background: #fff;
-            border: 0.125rem #006fe8 solid;
-            color: #006fe8;
-            padding: 2px 32px;
-          }
-        }
-      }
-      .coin-rack {
-        margin-top: 16px;
-        h4 {
-          color: #938ba1;
-        }
-        .rack-holder {
-          display: flex;
-          flex-direction: row;
-          .coin-card {
-            width: 11rem;
-            height: 11rem;
-            background: #ffffff;
-            box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25);
-            border-radius: 10px;
-            margin-right: 32px;
-            .content {
-              padding: 4px;
-              .top {
-                display: grid;
-                grid-template-columns: 1fr 3fr 1fr;
+          margin-right: 32px;
+          .content {
+            padding: 4px;
+            .top {
+              display: grid;
+              grid-template-columns: 1fr 3fr 1fr;
 
-                img:first-of-type {
-                  grid-column: 1;
-                  align-items: flex-end;
-                  max-width: 37px;
-                  max-height: 37px;
-                }
-                p {
-                  display: grid;
-                  grid-column: 2;
-                  align-items: center;
-                  margin: 0px;
-                  padding: 0px;
-                }
-                img:nth-of-type(2) {
-                  grid-column: 3;
-                  align-self: center;
-                }
-                width: 100%;
+              img:first-of-type {
+                grid-column: 1;
+                align-items: flex-end;
+                max-width: 37px;
+                max-height: 37px;
               }
-              .middle {
+              p {
                 display: grid;
-                height: 0.4 * 11rem;
-                align-content: center;
-                padding: 8px;
-                .small {
-                  margin: 0px;
-                  font-size: 14px;
-                }
-                h3 {
-                  color: #938ba1;
-                  font-weight: 400;
-                  margin: 0px;
-                  font-size: 28px;
-                }
+                grid-column: 2;
+                align-items: center;
+                margin: 0px;
+                padding: 0px;
               }
-              .bottom {
-                display: grid;
-                align-content: center;
-                justify-content: center;
-                a {
-                  background: linear-gradient(
-                    0deg,
-                    #0155dc 38.39%,
-                    #006fe8 66.76%
-                  );
-                  /* Shadow one */
+              img:nth-of-type(2) {
+                grid-column: 3;
+                align-self: center;
+              }
+              width: 100%;
+            }
+            .middle {
+              display: grid;
+              height: 0.4 * 11rem;
+              align-content: center;
+              padding: 8px;
+              .small {
+                margin: 0px;
+                font-size: 14px;
+              }
+              h3 {
+                color: #938ba1;
+                font-weight: 400;
+                margin: 0px;
+                font-size: 28px;
+              }
+            }
+            .bottom {
+              display: grid;
+              align-content: center;
+              justify-content: center;
+              a {
+                background: linear-gradient(
+                  0deg,
+                  #0155dc 38.39%,
+                  #006fe8 66.76%
+                );
+                /* Shadow one */
 
-                  box-shadow: 0px 4px 8px -2px #0647af;
-                  border-radius: 10px;
-                  font-weight: 600;
-                  width: 8rem;
-                  padding: 8px 12px;
-                  text-align: center;
-                  text-decoration: none;
-                  color: #fff;
-                }
+                box-shadow: 0px 4px 8px -2px #0647af;
+                border-radius: 10px;
+                font-weight: 600;
+                width: 8rem;
+                padding: 8px 12px;
+                text-align: center;
+                text-decoration: none;
+                color: #fff;
               }
             }
           }
-          .next-button {
-            display: flex;
-            margin: auto 0px;
-            padding: 0px;
-            height: 48px;
-            width: 48px;
-            border-radius: 50px;
-            background: linear-gradient(0deg, #0155dc 38.39%, #006fe8 66.76%);
-            /* Shadow one */
-            align-content: center;
-            box-shadow: 0px 4px 8px -2px #0647af;
-            justify-content: center;
-            align-items: center;
-          }
         }
-      }
-    }
-    .image-holder {
-      justify-content: center;
-      align-items: center;
-      img {
-        width: 90%;
-        height: auto;
+        .next-button {
+          display: flex;
+          margin: auto 0px;
+          padding: 0px;
+          height: 48px;
+          width: 48px;
+          border-radius: 50px;
+          background: linear-gradient(0deg, #0155dc 38.39%, #006fe8 66.76%);
+          /* Shadow one */
+          align-content: center;
+          box-shadow: 0px 4px 8px -2px #0647af;
+          justify-content: center;
+          align-items: center;
+        }
       }
     }
   }
+  .image-holder {
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 90%;
+      height: auto;
+    }
+  }
 }
-.container-fluid {
-  overflow: hidden;
-  width: 100%;
-  padding: 0px;
+.social-proof {
   margin: 0px;
-  .social-proof {
-    margin: 0px;
-    padding: 0px;
-    height: 130px;
-    overflow: none;
-    background: linear-gradient(
-      270.72deg,
-      #093884 10.96%,
-      #05366b 53.79%,
-      #0647af 99.5%
-    );
-    #social_pattern_left {
-      position: relative;
-      bottom: 99%;
-      right: 37%;
-    }
-    #social_pattern_right {
-      position: relative;
-      bottom: 99%;
-      left: 37%;
-    }
-    .content {
-      color: #fff;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      width: 80%;
-      margin: 0px auto;
-      .proof {
-        h3 {
-          font-size: 32px;
-        }
-        p {
-          padding-top: 0px;
-          margin-top: -25px;
-        }
+  padding: 0px;
+  height: 130px;
+  overflow: none;
+  background: linear-gradient(
+    270.72deg,
+    #093884 10.96%,
+    #05366b 53.79%,
+    #0647af 99.5%
+  );
+  #social_pattern_left {
+    position: relative;
+    bottom: 99%;
+    right: 37%;
+  }
+  #social_pattern_right {
+    position: relative;
+    bottom: 99%;
+    left: 37%;
+  }
+  .content {
+    color: #fff;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 80%;
+    margin: 0px auto;
+    .proof {
+      h3 {
+        font-size: 32px;
+      }
+      p {
+        padding-top: 0px;
+        margin-top: -25px;
       }
     }
   }
@@ -781,77 +648,9 @@ export default {
       height: 45vh;
       display: flex;
       flex-direction: row;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
       overflow-x: scroll;
-      .coin-card {
-        width: 11rem;
-        height: 11rem;
-        background: #ffffff;
-        box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25);
-        border-radius: 10px;
-        margin-right: 32px;
-        .content {
-          padding: 4px;
-          .top {
-            display: grid;
-            grid-template-columns: 1fr 3fr 1fr;
-
-            img:first-of-type {
-              grid-column: 1;
-              align-items: flex-end;
-              max-width: 37px;
-              max-height: 37px;
-            }
-            p {
-              display: grid;
-              grid-column: 2;
-              align-items: center;
-              margin: 0px;
-              padding: 0px;
-            }
-            img:nth-of-type(2) {
-              grid-column: 3;
-              align-self: center;
-            }
-            width: 100%;
-          }
-          .middle {
-            display: grid;
-            height: 0.4 * 11rem;
-            align-content: center;
-            padding: 8px;
-            .small {
-              margin: 0px;
-              font-size: 14px;
-            }
-            h3 {
-              color: #938ba1;
-              font-weight: 400;
-              margin: 0px;
-              font-size: 28px;
-            }
-          }
-          .bottom {
-            display: grid;
-            align-content: center;
-            justify-content: center;
-            a {
-              background: linear-gradient(0deg, #0155dc 38.39%, #006fe8 66.76%);
-              /* Shadow one */
-
-              box-shadow: 0px 4px 8px -2px #0647af;
-              border-radius: 10px;
-              font-weight: 600;
-              width: 8rem;
-              padding: 8px 12px;
-              text-align: center;
-              text-decoration: none;
-              color: #fff;
-            }
-          }
-        }
-      }
     }
   }
 }

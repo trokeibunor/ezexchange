@@ -119,8 +119,9 @@ export default {
         box-shadow: inset 0px 0px 6px rgba(0, 0, 0, 0.1);
         border-radius: 10px;
         width: 90%;
-        padding: 16px 32px;
+        padding: 16px 16px;
         margin: 16px 8px;
+        outline: none;
       }
       button[type="submit"] {
         display: flex;
