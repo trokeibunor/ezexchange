@@ -468,11 +468,16 @@
       </div>
     </div>
   </div>
+  <footer-component />
 </template>
 
 <script>
+import footerComponent from "../components/Footer-component.vue";
 export default {
   name: "HomeView",
+  components: {
+    footerComponent,
+  },
 };
 </script>
 <style lang="scss">
@@ -977,6 +982,7 @@ export default {
       .answer {
         text-align: left;
         width: 95%;
+        margin-bottom: 2.5rem;
       }
     }
   }
