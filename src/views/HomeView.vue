@@ -348,6 +348,22 @@
 import navComponent from "../components/Nav-component.vue";
 import footerComponent from "../components/Footer-component.vue";
 import coincardComponent from "../components/Coincard-component.vue";
+document.querySelector(".owl-carousel").owlCarousel({
+  loop: true,
+  margin: 10,
+  nav: true,
+  responsive: {
+    0: {
+      items: 1,
+    },
+    600: {
+      items: 3,
+    },
+    1000: {
+      items: 5,
+    },
+  },
+});
 export default {
   name: "HomeView",
   components: {

@@ -153,6 +153,9 @@ export default {
     padding: 2.5rem 0px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    h3 {
+      color: #ffffff;
+    }
     #cta_footer {
       text-decoration: none;
       background-color: #ffffff;

@@ -18,19 +18,33 @@
       </div>
     </section>
   </div>
+  <div class="container-fluid">
+    <div class="market-favourites">
+      <h3>Market Favourites</h3>
+      <div class="coin-rack">
+        <coincard-component />
+        <coincard-component />
+        <coincard-component />
+        <coincard-component />
+        <coincard-component />
+        <coincard-component />
+        <coincard-component />
+      </div>
+    </div>
+  </div>
   <footer-component />
 </template>
 
 <script>
 import navComponent from "../components/Nav-component.vue";
 import footerComponent from "../components/Footer-component.vue";
-// import coincardComponent from "../components/Coincard-component.vue";
+import coincardComponent from "../components/Coincard-component.vue";
 export default {
   name: "MarketView",
   components: {
     navComponent,
     footerComponent,
-    // coincardComponent,
+    coincardComponent,
   },
 };
 </script>
@@ -84,6 +98,16 @@ export default {
         font-weight: 600;
       }
     }
+  }
+}
+.market-favourites {
+  width: 90%;
+  margin: 2rem auto;
+  text-align: left;
+  .coin-rack {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
   }
 }
 </style>

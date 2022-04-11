@@ -33,6 +33,7 @@ export default {
   box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   margin-right: 32px;
+  text-align: left;
   .content {
     padding: 4px;
     .top {
