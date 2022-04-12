@@ -29,6 +29,85 @@
         <coincard-component />
         <coincard-component />
         <coincard-component />
+        <coincard-component />
+      </div>
+    </div>
+    <div class="market-favourites regular-trades">
+      <h3>Your Regulars</h3>
+      <div class="coin-rack">
+        <coincard-component />
+        <coincard-component />
+        <coincard-component />
+        <coincard-component />
+        <coincard-component />
+        <coincard-component />
+        <coincard-component />
+        <coincard-component />
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid" id="giftcard">
+    <div class="giftcard-section">
+      <div class="header">
+        <h3>Our Giftcard Section</h3>
+        <a href="#">Request Giftcard</a>
+      </div>
+      <div class="content-box">
+        <router-link class="giftcard-box" to="#">
+          <img src="../assets/images/apple_logo.svg" alt="" srcset="" />
+          <h4>Apple Store Giftcard</h4>
+        </router-link>
+        <router-link class="giftcard-box" to="#">
+          <img src="../assets/images/apple_logo.svg" alt="" srcset="" />
+          <h4>Apple Store Giftcard</h4>
+        </router-link>
+        <router-link class="giftcard-box" to="#">
+          <img src="../assets/images/apple_logo.svg" alt="" srcset="" />
+          <h4>Apple Store Giftcard</h4>
+        </router-link>
+        <router-link class="giftcard-box" to="#">
+          <img src="../assets/images/apple_logo.svg" alt="" srcset="" />
+          <h4>Apple Store Giftcard</h4>
+        </router-link>
+        <router-link class="giftcard-box" to="#">
+          <img src="../assets/images/apple_logo.svg" alt="" srcset="" />
+          <h4>Apple Store Giftcard</h4>
+        </router-link>
+        <router-link class="giftcard-box" to="#">
+          <img src="../assets/images/apple_logo.svg" alt="" srcset="" />
+          <h4>Apple Store Giftcard</h4>
+        </router-link>
+        <router-link class="giftcard-box" to="#">
+          <img src="../assets/images/apple_logo.svg" alt="" srcset="" />
+          <h4>Apple Store Giftcard</h4>
+        </router-link>
+        <router-link class="giftcard-box" to="#">
+          <img src="../assets/images/apple_logo.svg" alt="" srcset="" />
+          <h4>Apple Store Giftcard</h4>
+        </router-link>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid" id="coin-table">
+    <div class="coin-table">
+      <div class="header">
+        <h3>Our Token Catalogue</h3>
+        <a href="#">Request Coin?</a>
+      </div>
+      <div class="content">
+        <coincard-component />
+        <coincard-component />
+        <coincard-component />
+        <coincard-component />
+        <coincard-component />
+        <coincard-component />
+        <coincard-component />
+        <coincard-component />
+        <coincard-component />
+        <coincard-component />
+        <coincard-component />
+        <coincard-component />
+        <coincard-component />
       </div>
     </div>
   </div>
@@ -104,10 +183,118 @@ export default {
   width: 90%;
   margin: 2rem auto;
   text-align: left;
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .coin-rack::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
   .coin-rack {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  .coin-rack {
+    height: auto;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    padding: 8px;
+    align-items: center;
+    overflow-x: scroll;
+  }
+}
+#giftcard {
+  background-color: #eef2f5;
+}
+.giftcard-section {
+  margin: 0px 4rem;
+  .header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    h3,
+    a {
+      display: flex;
+      width: 100%;
+      margin: 24px auto;
+    }
+    h3 {
+      justify-content: flex-start;
+    }
+    a {
+      justify-content: flex-end;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    :hover {
+      color: #708e95;
+    }
+  }
+  .content-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-row-gap: 32px;
+    grid-template-rows: auto;
+    justify-items: center;
+    align-items: center;
+    margin: 32px auto;
+    .giftcard-box {
+      width: 80%;
+      height: 10rem;
+      border-radius: 10px;
+      background-image: url(../assets/images/giftcard_background.svg);
+      background-position: bottom left;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      img {
+        width: auto;
+        max-height: 64px;
+      }
+      h4 {
+        color: #ffffff;
+      }
+    }
+  }
+}
+#coin-table {
+  // background-color: #006fe8;
+  background-image: url(../assets/images/market_pattern.svg);
+}
+.coin-table {
+  margin: 0px 2rem;
+  color: #0d1b1e;
+  .header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    h3,
+    a {
+      display: flex;
+      width: 100%;
+      margin: 24px auto;
+    }
+    h3 {
+      justify-content: flex-start;
+    }
+    a {
+      color: #006fe8;
+      justify-content: flex-end;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    :hover {
+      color: #cccccc;
+    }
+  }
+  .content {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: auto;
+    grid-row-gap: 32px;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto;
+    color: #0d1b1e;
   }
 }
 </style>
