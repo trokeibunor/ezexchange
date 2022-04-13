@@ -7,7 +7,7 @@
       <div class="nav-links">
         <router-link to="/">Home</router-link>
         <router-link to="/market">Market</router-link>
-        <router-link to="/about">News</router-link>
+        <router-link to="/news">News</router-link>
         <router-link to="/about">About</router-link>
       </div>
       <div class="search-form">
