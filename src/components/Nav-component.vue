@@ -25,7 +25,7 @@
         </form>
       </div>
       <div class="avater">
-        <router-link to="/login" class="login_btn">
+        <router-link to="/signin" class="login_btn">
           <img src="../assets/images/login_icon.svg" alt="" srcset="" />
         </router-link>
       </div>

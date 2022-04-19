@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import MarketView from "../views/MarketView.vue";
 import NewsView from "../views/NewsView.vue";
+import signupView from "../views/signupView.vue";
+import signinView from "../views/signinView.vue";
 
 const routes = [
   {
@@ -27,6 +29,16 @@ const routes = [
     path: "/news",
     name: "news",
     component: NewsView,
+  },
+  {
+    path: "/signup",
+    name: "signup",
+    component: signupView,
+  },
+  {
+    path: "/signin",
+    name: "signin",
+    component: signinView,
   },
 ];
 
