@@ -11,8 +11,8 @@
         <h3>Get Started with EzExchange</h3>
         <p>Getting Started is Easy, Sign up with</p>
         <div class="button-rack">
-          <a href="#" id="gmailbtn"
-            ><img src="../assets/images/google_logo.svg" alt="" srcset="" />
+          <a id="gmailbtn" @click="signInwithGoogle">
+            <img src="../assets/images/google_logo.svg" alt="" srcset="" />
             Google
           </a>
           <a href="#" id="facebookbtn">
@@ -23,13 +23,6 @@
         <div class="separator">Or continue With</div>
         <form action="#" method="get">
           <!-- Sign up form -->
-          <input
-            type="text"
-            name="fullname"
-            id="fullname"
-            placeholder="Full name"
-            v-model="this.form.name"
-          />
           <input
             type="email"
             name="email"
@@ -49,11 +42,18 @@
           <input
             type="password"
             id="conPassword"
+            :class="{ incorrect: passChecker }"
             placeholder="Confirm Password"
             v-model="this.form.conPassword"
             required
           />
-          <button @click="register" id="submit-btn" type="button">
+          <p class="small" v-if="passChecker">Password does not match</p>
+          <button
+            @click="register"
+            id="submit-btn"
+            type="button"
+            :disabled="passChecker"
+          >
             Create Account
           </button>
         </form>
@@ -72,6 +72,8 @@
 <script>
 import navComponent from "../components/Nav-component.vue";
 import useAuth from "../composition/useAuth";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+
 export default {
   name: "signUp",
   data() {
@@ -92,6 +94,15 @@ export default {
   components: {
     navComponent,
   },
+  computed: {
+    passChecker() {
+      if (this.form.password != this.form.conPassword) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+  },
   watch: {
     error() {
       // display an error alert
@@ -104,6 +115,21 @@ export default {
   methods: {
     register() {
       this.$store.dispatch("users/register", this.form);
+    },
+    signInwithGoogle() {
+      const auth = getAuth();
+      const signIn = signInWithPopup;
+      const googleProvider = new GoogleAuthProvider();
+      signIn(auth, googleProvider)
+        .then((result) => {
+          const credential = GoogleAuthProvider.credentialFromResult(result);
+          console.log(credential);
+          this.$router.push("/verify");
+        })
+        .catch((error) => {
+          console.log(error);
+          alert(error);
+        });
     },
   },
 };
@@ -201,6 +227,15 @@ export default {
           padding: 10px 16px;
           margin: 8px 0px;
         }
+        input.incorrect {
+          border: 1px solid #c40202;
+        }
+        p.small {
+          font-size: 10px;
+          color: #383838;
+          margin: 0px;
+          padding: 0px;
+        }
         #submit-btn {
           width: 113%;
           height: fit-content;
@@ -212,6 +247,9 @@ export default {
           color: #fff;
           font-weight: 600;
           cursor: pointer;
+        }
+        #submit-btn:disabled {
+          background: #808080;
         }
       }
       .last-text {

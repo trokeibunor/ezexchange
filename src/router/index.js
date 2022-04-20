@@ -4,6 +4,7 @@ import MarketView from "../views/MarketView.vue";
 import NewsView from "../views/NewsView.vue";
 import signupView from "../views/signupView.vue";
 import signinView from "../views/signinView.vue";
+import verifyEmail from "../views/verifyEmail.vue";
 
 const routes = [
   {
@@ -39,6 +40,11 @@ const routes = [
     path: "/signin",
     name: "signin",
     component: signinView,
+  },
+  {
+    path: "/verify",
+    name: "verifyEmail",
+    component: verifyEmail,
   },
 ];
 

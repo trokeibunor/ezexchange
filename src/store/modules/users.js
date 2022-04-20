@@ -1,6 +1,8 @@
 // Import user data from database
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { app } from "../../db/index";
+import {} from "firebase/auth";
+
 export default {
   namespaced: true,
   state() {
