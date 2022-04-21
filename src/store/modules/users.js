@@ -1,12 +1,17 @@
 // Import user data from database
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { doc, setDoc } from "firebase/firestore";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+} from "firebase/auth";
+import { doc, setDoc, getDoc } from "firebase/firestore";
 import { db } from "../../db";
 
 export default {
   namespaced: true,
   state() {
     return {
+      data: null,
       register: {
         isProcessing: false,
         error: "",
@@ -15,6 +20,29 @@ export default {
   },
   getters: {},
   actions: {
+    onAuthChanged({ dispatch }) {
+      // session management function
+
+      onAuthStateChanged(getAuth(), async (user) => {
+        if (user) {
+          dispatch("getUserProfile", user);
+        } else {
+          console.log("logged out");
+        }
+      });
+    },
+    async getUserProfile({ commit }, user) {
+      const docRef = doc(db, "users", user.uid);
+      const docSnap = await getDoc(docRef);
+      const userProfile = docSnap.data();
+      const userWithProfile = {
+        id: user.uid,
+        email: user.email,
+        ...userProfile,
+      };
+
+      commit("setUser", userWithProfile);
+    },
     async register(
       { commit, dispatch },
       { email, password, lastname, firstname }
@@ -31,9 +59,7 @@ export default {
         await dispatch("createUserProfile", {
           id: user.uid,
           displayName: `${lastname + firstname}`,
-          avater: `https://ui-avatars.com/api/?name=${
-            lastname + firstname
-          }&background=006fe8&color=fff`,
+          avater: `https://ui-avatars.com/api/?name=${lastname}+${firstname}&background=006fe8&color=fff`,
           transactions: [],
         });
       } catch (error) {
@@ -53,6 +79,10 @@ export default {
     },
     setRegisterError(state, error) {
       state.register.error = error;
+    },
+    setUser(state, user) {
+      console.log(user);
+      state.data = user;
     },
   },
 };

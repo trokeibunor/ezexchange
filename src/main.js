@@ -4,16 +4,6 @@ import router from "./router";
 import store from "./store";
 import Toast from "vue-toastification";
 import "vue-toastification/dist/index.css";
-import { onAuthStateChanged, getAuth } from "firebase/auth";
 
-// session management function
-
-onAuthStateChanged(getAuth(), (user) => {
-  if (user) {
-    console.log(user);
-  } else {
-    console.log("logged out");
-  }
-});
-
+store.dispatch("users/onAuthChanged");
 createApp(App).use(store).use(router).use(Toast).mount("#app");

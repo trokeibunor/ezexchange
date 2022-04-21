@@ -153,11 +153,16 @@ export default {
       signIn(auth, googleProvider)
         .then((result) => {
           const credential = GoogleAuthProvider.credentialFromResult(result);
-          console.log(credential);
           const token = credential.accessToken;
           console.log(token);
           // The signed-in user info.
           const user = result.user;
+          this.$store.dispatch("users/createUserProfile", {
+            id: user.uid,
+            displayName: user.displayName,
+            avater: `https://ui-avatars.com/api/?name=${user.displayName}&background=006fe8&color=fff`,
+            transactions: [],
+          });
           console.log(user);
           this.$router.push("/verify");
         })
