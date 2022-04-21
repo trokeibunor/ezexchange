@@ -1,7 +1,7 @@
 // Import user data from database
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { app } from "../../db/index";
-import {} from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../../db";
 
 export default {
   namespaced: true,
@@ -15,23 +15,36 @@ export default {
   },
   getters: {},
   actions: {
-    async register({ commit }, { email, password }) {
+    async register(
+      { commit, dispatch },
+      { email, password, lastname, firstname }
+    ) {
       commit("setRegisterIsProcessing", true);
       commit("setRegisterError", "");
-      const auth = getAuth(app);
+      const auth = getAuth();
       try {
-        const userCredentials = await createUserWithEmailAndPassword(
+        const { user } = await createUserWithEmailAndPassword(
           auth,
           email,
           password
         );
-
-        return userCredentials;
+        await dispatch("createUserProfile", {
+          id: user.uid,
+          displayName: `${lastname + firstname}`,
+          avater: `https://ui-avatars.com/api/?name=${
+            lastname + firstname
+          }&background=006fe8&color=fff`,
+          transactions: [],
+        });
       } catch (error) {
         commit("setRegisterError", error.message);
+        dispatch("toast/error", error.message, { root: true });
       } finally {
         commit("setRegisterIsProcessing", false);
       }
+    },
+    async createUserProfile(_, { id, ...profile }) {
+      await setDoc(doc(db, "users", id), profile);
     },
   },
   mutations: {

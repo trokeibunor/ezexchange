@@ -2,7 +2,6 @@
   <div class="container-fluid" id="wrapper">
     <nav-component />
     <!-- alert Box -->
-    <div class="alert" v-if="error">{{ error }}</div>
     <div class="grid">
       <div>
         <!-- Empty column -->
@@ -23,6 +22,24 @@
         <div class="separator">Or continue With</div>
         <form action="#" method="get">
           <!-- Sign up form -->
+          <div class="input-row">
+            <input
+              type="text"
+              name="firstname"
+              id="firstname"
+              placeholder="Firstname"
+              v-model="this.form.firstname"
+              required
+            />
+            <input
+              type="text"
+              name="lastname"
+              id="lastname"
+              placeholder="Lastname"
+              v-model="this.form.lastname"
+              required
+            />
+          </div>
           <input
             type="email"
             name="email"
@@ -52,7 +69,7 @@
             @click="register"
             id="submit-btn"
             type="button"
-            :disabled="passChecker"
+            :disabled="isProcessing"
           >
             Create Account
           </button>
@@ -79,7 +96,8 @@ export default {
   data() {
     return {
       form: {
-        name: "",
+        firstname: "",
+        lastname: "",
         email: "",
         password: "",
         conPassword: "",
@@ -96,7 +114,10 @@ export default {
   },
   computed: {
     passChecker() {
-      if (this.form.password != this.form.conPassword) {
+      if (
+        this.form.password != "" &&
+        this.form.password != this.form.conPassword
+      ) {
         return true;
       } else {
         return false;
@@ -104,12 +125,21 @@ export default {
     },
   },
   watch: {
-    error() {
-      // display an error alert
-    },
-    isProcessing() {
+    isProcessing(processing, prevProcessing) {
       // display a loader over the entire screen width
-      // redirect to the
+      // redirect to the home page
+      if (
+        !processing &&
+        prevProcessing &&
+        !this.error &&
+        this.form.password != "" &&
+        this.form.password == this.form.conPassword
+      ) {
+        this.$router.push("/verify");
+        return true;
+      } else {
+        return false;
+      }
     },
   },
   methods: {
@@ -124,6 +154,11 @@ export default {
         .then((result) => {
           const credential = GoogleAuthProvider.credentialFromResult(result);
           console.log(credential);
+          const token = credential.accessToken;
+          console.log(token);
+          // The signed-in user info.
+          const user = result.user;
+          console.log(user);
           this.$router.push("/verify");
         })
         .catch((error) => {
@@ -216,6 +251,20 @@ export default {
         flex-direction: column;
         width: 40%;
         margin: 16px auto;
+        .input-row {
+          width: 113%;
+          display: flex;
+          flex-direction: row;
+          input[type="text"] {
+            width: 50%;
+            outline: none;
+            border: 1px solid #0000001e;
+            border-radius: 5px;
+            height: 24px;
+            padding: 10px 16px;
+            margin: 8px 0px;
+          }
+        }
         input[type="text"],
         input[type="email"],
         input[type="password"] {
