@@ -12,13 +12,17 @@ export default {
   state() {
     return {
       data: null,
-      register: {
+      authentication: {
         isProcessing: false,
         error: "",
       },
     };
   },
-  getters: {},
+  getters: {
+    isAuthenticated(state) {
+      return !!state.data;
+    },
+  },
   actions: {
     onAuthChanged({ dispatch }) {
       // session management function
@@ -47,8 +51,8 @@ export default {
       { commit, dispatch },
       { email, password, lastname, firstname }
     ) {
-      commit("setRegisterIsProcessing", true);
-      commit("setRegisterError", "");
+      commit("setAuthenticationIsProcessing", true);
+      commit("setAuthenticationError", "");
       const auth = getAuth();
       try {
         const { user } = await createUserWithEmailAndPassword(
@@ -59,14 +63,14 @@ export default {
         await dispatch("createUserProfile", {
           id: user.uid,
           displayName: `${lastname + firstname}`,
-          avater: `https://ui-avatars.com/api/?name=${lastname}+${firstname}&background=006fe8&color=fff`,
+          avater: `https://ui-avatars.com/api/?name=${lastname}+${firstname}&background=0155dc&color=fff&bold=true`,
           transactions: [],
         });
       } catch (error) {
-        commit("setRegisterError", error.message);
+        commit("setAuthenticationError", error.message);
         dispatch("toast/error", error.message, { root: true });
       } finally {
-        commit("setRegisterIsProcessing", false);
+        commit("setAuthenticationIsProcessing", false);
       }
     },
     async createUserProfile(_, { id, ...profile }) {
@@ -74,11 +78,11 @@ export default {
     },
   },
   mutations: {
-    setRegisterIsProcessing(state, isProcessing) {
-      state.register.isProcessing = isProcessing;
+    setAuthenticationIsProcessing(state, isProcessing) {
+      state.authentication.isProcessing = isProcessing;
     },
-    setRegisterError(state, error) {
-      state.register.error = error;
+    setAuthenticationError(state, error) {
+      state.authentication.error = error;
     },
     setUser(state, user) {
       console.log(user);

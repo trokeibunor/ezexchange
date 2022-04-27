@@ -25,17 +25,50 @@
         </form>
       </div>
       <div class="avater">
-        <router-link to="/signin" class="login_btn">
-          <img src="../assets/images/login_icon.svg" alt="" srcset="" />
+        <router-link to="/signin" v-if="!isAuthenticated" class="login_btn">
+          <img
+            src="../assets/images/login_icon.svg"
+            alt=""
+            srcset=""
+            id="notAuth"
+          />
+        </router-link>
+        <router-link to="" @click="changeLog" v-else class="login_btn">
+          <img :src="user.avater" alt="" id="Auth" srcset="" />
         </router-link>
       </div>
     </div>
   </nav>
+  <div id="logport" v-if="logport">
+    <ul>
+      <router-link to="#">LogOut</router-link>
+      <router-link to="#">History</router-link>
+    </ul>
+  </div>
 </template>
 
 <script>
+import useAuth from "../composition/useAuth";
 export default {
   name: "Nav-component",
+  data() {
+    return {
+      logport: false,
+    };
+  },
+  setup() {
+    return useAuth();
+  },
+  computed: {
+    isAuthenticated() {
+      return this.$store.getters["users/isAuthenticated"];
+    },
+  },
+  methods: {
+    changeLog() {
+      this.logport = !this.logport;
+    },
+  },
 };
 </script>
 
@@ -99,12 +132,48 @@ nav {
     margin: auto 0rem;
   }
   .login_btn {
-    border-radius: 50px;
-    background: linear-gradient(0deg, #0155dc 38.39%, #006fe8 66.76%);
-    padding: 10px;
-
-    img {
+    img#notAuth {
       margin: -3px 0px;
+      max-width: 32px;
+      max-height: 32px;
+      border-radius: 50px;
+      background: linear-gradient(0deg, #0155dc 38.39%, #006fe8 66.76%);
+      padding: 10px;
+    }
+    img#Auth {
+      margin: -3px 0px;
+      max-width: 40px;
+      max-height: 40px;
+      border-radius: 50px;
+      background: linear-gradient(0deg, #0155dc 38.39%, #006fe8 66.76%);
+      padding: 0px;
+    }
+  }
+}
+#logport {
+  position: absolute;
+  right: 32px;
+  background: #ffffff;
+  box-shadow: 0px 0px 10px 1px #00102918;
+  border-radius: 5px;
+  padding: 8px;
+  width: fit-content;
+  height: fit-content;
+  text-align: center;
+  ul {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 16px;
+    a {
+      text-decoration: none;
+      border-bottom: 1px dashed #0d1b1e;
+      padding: 8px;
+      font-weight: bold;
+      color: #0d1b1e;
+    }
+    :hover {
+      color: #0155dc;
     }
   }
 }

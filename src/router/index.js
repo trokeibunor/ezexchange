@@ -5,6 +5,8 @@ import NewsView from "../views/NewsView.vue";
 import signupView from "../views/signupView.vue";
 import signinView from "../views/signinView.vue";
 import verifyEmail from "../views/verifyEmail.vue";
+import productCoin from "../views/ProductCoin.vue";
+import productCard from "../views/ProductCard.vue";
 
 const routes = [
   {
@@ -45,6 +47,16 @@ const routes = [
     path: "/verify",
     name: "verifyEmail",
     component: verifyEmail,
+  },
+  {
+    path: "/coin",
+    name: "productCoin",
+    component: productCoin,
+  },
+  {
+    path: "/card",
+    name: "productCard",
+    component: productCard,
   },
 ];
 
