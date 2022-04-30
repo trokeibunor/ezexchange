@@ -41,7 +41,9 @@
   </nav>
   <div id="logport" v-if="logport">
     <ul>
-      <router-link to="#">LogOut</router-link>
+      <router-link @click="() => $store.dispatch('users/logout')" to="#"
+        >LogOut</router-link
+      >
       <router-link to="#">History</router-link>
     </ul>
   </div>

@@ -4,7 +4,7 @@
     <div class="content">
       <div id="title">
         <!-- Company logo -->
-        <img src="../assets/images/apple_logo.svg" alt="" srcset="" />
+        <img src="../assets/images/apple_logo_dark.svg" alt="" srcset="" />
         <div>
           <h4>Apple Gift card</h4>
           <p>Redeem your gift cards and get paid in Nigerian Naira</p>
@@ -91,7 +91,7 @@ export default {
     display: flex;
     flex-direction: column;
     text-align: left;
-    margin-top: 10px;
+    margin-top: 4px;
     h4,
     p {
       margin: 0px;
@@ -118,8 +118,8 @@ export default {
     align-items: center;
     justify-items: center;
     img {
-      width: 70%;
-      height: 70%;
+      width: 80%;
+      height: 80%;
       margin: auto;
     }
   }

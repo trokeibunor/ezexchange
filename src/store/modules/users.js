@@ -3,9 +3,12 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
+  signOut,
+  signInWithEmailAndPassword,
 } from "firebase/auth";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { db } from "../../db";
+import router from "@/router";
 
 export default {
   namespaced: true,
@@ -71,6 +74,29 @@ export default {
         dispatch("toast/error", error.message, { root: true });
       } finally {
         commit("setAuthenticationIsProcessing", false);
+      }
+    },
+    async login({ commit, dispatch }, { email, password }) {
+      commit("setAuthenticationIsProcessing", true);
+      commit("setAuthenticationError", "");
+
+      try {
+        await signInWithEmailAndPassword(getAuth(), email, password);
+        router.push("/");
+      } catch (error) {
+        commit("setAuthenticationError", error.message);
+        dispatch("toast/error", error.message, { root: true });
+      } finally {
+        commit("setAuthenticationIsProcessing", false);
+      }
+    },
+    async logout({ commit }) {
+      try {
+        await signOut(getAuth());
+        commit("setUser", null);
+        router.push("/signin");
+      } catch (error) {
+        console.log("cannot logout" + error);
       }
     },
     async createUserProfile(_, { id, ...profile }) {

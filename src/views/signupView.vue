@@ -144,7 +144,7 @@ export default {
   },
   methods: {
     register() {
-      this.$store.dispatch("users/authentication", this.form);
+      this.$store.dispatch("users/register", this.form);
     },
     signInwithGoogle() {
       const auth = getAuth();

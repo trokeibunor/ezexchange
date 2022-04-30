@@ -9,7 +9,7 @@
         <h3>Hello there, welcome back</h3>
         <p>Let's get started, login to you account</p>
         <div class="button-rack">
-          <a href="#" id="gmailbtn"
+          <a href="#" id="gmailbtn" @click="signInwithGoogle"
             ><img src="../assets/images/google_logo.svg" alt="" srcset="" />
             Google
           </a>
@@ -49,7 +49,14 @@
               <router-link to="#">Recover Password</router-link>
             </div>
           </div>
-          <button type="submit" id="submit-btn">Log In</button>
+          <button
+            @click="login"
+            id="submit-btn"
+            type="button"
+            :disabled="isProcessing"
+          >
+            Log In
+          </button>
         </form>
         <p class="last-text">
           Don't have an account? <router-link to="/signup">Sign up</router-link>
@@ -65,6 +72,9 @@
 
 <script>
 import navComponent from "../components/Nav-component.vue";
+import useAuth from "@/composition/useAuth";
+
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 export default {
   name: "signIn",
   data() {
@@ -75,9 +85,44 @@ export default {
       },
     };
   },
+  setUp() {
+    return useAuth();
+  },
   methods: {
     login() {
-      alert("login");
+      this.$store.dispatch("users/login", this.form);
+    },
+    signInwithGoogle() {
+      const auth = getAuth();
+      const signIn = signInWithPopup;
+      const googleProvider = new GoogleAuthProvider();
+      signIn(auth, googleProvider)
+        .then(() => {
+          // the signIn functionality in the signin page does not store user data only logs in
+          this.$router.push("/");
+        })
+        .catch((error) => {
+          console.log(error);
+          alert(error);
+        });
+    },
+  },
+  watch: {
+    isProcessing(processing, prevProcessing) {
+      // display a loader over the entire screen width
+      // redirect to the home page
+      if (
+        !processing &&
+        prevProcessing &&
+        !this.error &&
+        this.form.password != "" &&
+        this.form.password == this.form.conPassword
+      ) {
+        this.$router.push("/");
+        return true;
+      } else {
+        return false;
+      }
     },
   },
   components: {
@@ -176,6 +221,7 @@ export default {
           border: none;
           color: #fff;
           font-weight: 600;
+          cursor: pointer;
         }
         .row {
           display: grid;
