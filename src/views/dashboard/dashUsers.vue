@@ -21,6 +21,128 @@
                 <th>Action(s)</th>
               </tr>
             </thead>
+            <tbody>
+              <tr>
+                <td>#103493483984983</td>
+                <td>Okeibunor Emmanuel</td>
+                <td>okeibunoremma@gmail.com</td>
+                <td><button>Remove</button></td>
+              </tr>
+              <tr>
+                <td>#103493483984983</td>
+                <td>Okeibunor Emmanuel</td>
+                <td>okeibunoremma@gmail.com</td>
+                <td><button>Remove</button></td>
+              </tr>
+              <tr>
+                <td>#103493483984983</td>
+                <td>Okeibunor Emmanuel</td>
+                <td>okeibunoremma@gmail.com</td>
+                <td><button>Remove</button></td>
+              </tr>
+              <tr>
+                <td>#103493483984983</td>
+                <td>Okeibunor Emmanuel</td>
+                <td>okeibunoremma@gmail.com</td>
+                <td><button>Remove</button></td>
+              </tr>
+              <tr>
+                <td>#103493483984983</td>
+                <td>Okeibunor Emmanuel</td>
+                <td>okeibunoremma@gmail.com</td>
+                <td><button>Remove</button></td>
+              </tr>
+              <tr>
+                <td>#103493483984983</td>
+                <td>Okeibunor Emmanuel</td>
+                <td>okeibunoremma@gmail.com</td>
+                <td><button>Remove</button></td>
+              </tr>
+              <tr>
+                <td>#103493483984983</td>
+                <td>Okeibunor Emmanuel</td>
+                <td>okeibunoremma@gmail.com</td>
+                <td><button>Remove</button></td>
+              </tr>
+              <tr>
+                <td>#103493483984983</td>
+                <td>Okeibunor Emmanuel</td>
+                <td>okeibunoremma@gmail.com</td>
+                <td><button>Remove</button></td>
+              </tr>
+              <tr>
+                <td>#103493483984983</td>
+                <td>Okeibunor Emmanuel</td>
+                <td>okeibunoremma@gmail.com</td>
+                <td><button>Remove</button></td>
+              </tr>
+              <tr>
+                <td>#103493483984983</td>
+                <td>Okeibunor Emmanuel</td>
+                <td>okeibunoremma@gmail.com</td>
+                <td><button>Remove</button></td>
+              </tr>
+              <tr>
+                <td>#103493483984983</td>
+                <td>Okeibunor Emmanuel</td>
+                <td>okeibunoremma@gmail.com</td>
+                <td><button>Remove</button></td>
+              </tr>
+              <tr>
+                <td>#103493483984983</td>
+                <td>Okeibunor Emmanuel</td>
+                <td>okeibunoremma@gmail.com</td>
+                <td><button>Remove</button></td>
+              </tr>
+              <tr>
+                <td>#103493483984983</td>
+                <td>Okeibunor Emmanuel</td>
+                <td>okeibunoremma@gmail.com</td>
+                <td><button>Remove</button></td>
+              </tr>
+              <tr>
+                <td>#103493483984983</td>
+                <td>Okeibunor Emmanuel</td>
+                <td>okeibunoremma@gmail.com</td>
+                <td><button>Remove</button></td>
+              </tr>
+              <tr>
+                <td>#103493483984983</td>
+                <td>Okeibunor Emmanuel</td>
+                <td>okeibunoremma@gmail.com</td>
+                <td><button>Remove</button></td>
+              </tr>
+              <tr>
+                <td>#103493483984983</td>
+                <td>Okeibunor Emmanuel</td>
+                <td>okeibunoremma@gmail.com</td>
+                <td><button>Remove</button></td>
+              </tr>
+              <tr>
+                <td>#103493483984983</td>
+                <td>Okeibunor Emmanuel</td>
+                <td>okeibunoremma@gmail.com</td>
+                <td><button>Remove</button></td>
+              </tr>
+              <tr>
+                <td>#103493483984983</td>
+                <td>Okeibunor Emmanuel</td>
+                <td>okeibunoremma@gmail.com</td>
+                <td><button>Remove</button></td>
+              </tr>
+              <tr>
+                <td>#103493483984983</td>
+                <td>Okeibunor Emmanuel</td>
+                <td>okeibunoremma@gmail.com</td>
+                <td><button>Remove</button></td>
+              </tr>
+              <tr>
+                <td>#103493483984983</td>
+                <td>Okeibunor Emmanuel</td>
+                <td>okeibunoremma@gmail.com</td>
+                <td><button>Remove</button></td>
+              </tr>
+            </tbody>
           </table>
         </div>
       </div>
@@ -60,7 +182,8 @@ export default {
   min-height: 100vh;
 }
 .content {
-  width: 100%;
+  width: 95%;
+  margin: 1px auto;
   .intro {
     text-align: left;
     h3,
@@ -70,6 +193,20 @@ export default {
   }
   table {
     width: 100%;
+    height: 90vh;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    th,
+    td {
+      height: 32px;
+    }
+    thead {
+      background: #ccc;
+    }
+    tbody {
+      height: 90vh;
+      overflow: scroll;
+    }
   }
 }
 </style>

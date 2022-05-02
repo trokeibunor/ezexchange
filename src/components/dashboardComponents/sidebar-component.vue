@@ -72,7 +72,7 @@ aside {
     margin: 0;
     padding: 0px;
     background-color: #ade8f4;
-    height: 10%;
+    height: 10vh;
     width: 100%;
     img {
       margin: 4% auto;
