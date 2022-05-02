@@ -46,7 +46,7 @@
             />
             <h4>Articles</h4>
           </router-link>
-          <router-link to="#" style="background-color: #a2d2ff">
+          <router-link to="#" style="background-color: #023e8a">
             <!-- svg image -->
             <img
               src="../../assets/images/dashboard/resources_img.svg"
