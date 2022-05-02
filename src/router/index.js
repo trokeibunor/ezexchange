@@ -7,6 +7,7 @@ import signinView from "../views/signinView.vue";
 import verifyEmail from "../views/verifyEmail.vue";
 import productCoin from "../views/ProductCoin.vue";
 import productCard from "../views/ProductCard.vue";
+import dashHome from "../views/dashboard/dashHome.vue";
 
 const routes = [
   {
@@ -57,6 +58,11 @@ const routes = [
     path: "/card",
     name: "productCard",
     component: productCard,
+  },
+  {
+    path: "/dashboard/",
+    name: "dashboardHome",
+    component: dashHome,
   },
 ];
 
