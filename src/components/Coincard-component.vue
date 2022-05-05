@@ -12,7 +12,7 @@
           <h3>$37,320.34</h3>
         </div>
         <div class="bottom">
-          <router-link to="#">View Rates </router-link>
+          <router-link to="/coin">View Rates </router-link>
         </div>
       </div>
     </div>
