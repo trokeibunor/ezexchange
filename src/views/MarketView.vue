@@ -53,35 +53,35 @@
         <a href="#">Request Giftcard</a>
       </div>
       <div class="content-box">
-        <router-link class="giftcard-box" to="#">
+        <router-link class="giftcard-box" to="/card">
           <img src="../assets/images/apple_logo.svg" alt="" srcset="" />
           <h4>Apple Store Giftcard</h4>
         </router-link>
-        <router-link class="giftcard-box" to="#">
+        <router-link class="giftcard-box" to="/card">
           <img src="../assets/images/apple_logo.svg" alt="" srcset="" />
           <h4>Apple Store Giftcard</h4>
         </router-link>
-        <router-link class="giftcard-box" to="#">
+        <router-link class="giftcard-box" to="/card">
           <img src="../assets/images/apple_logo.svg" alt="" srcset="" />
           <h4>Apple Store Giftcard</h4>
         </router-link>
-        <router-link class="giftcard-box" to="#">
+        <router-link class="giftcard-box" to="/card">
           <img src="../assets/images/apple_logo.svg" alt="" srcset="" />
           <h4>Apple Store Giftcard</h4>
         </router-link>
-        <router-link class="giftcard-box" to="#">
+        <router-link class="giftcard-box" to="/card">
           <img src="../assets/images/apple_logo.svg" alt="" srcset="" />
           <h4>Apple Store Giftcard</h4>
         </router-link>
-        <router-link class="giftcard-box" to="#">
+        <router-link class="giftcard-box" to="/card">
           <img src="../assets/images/apple_logo.svg" alt="" srcset="" />
           <h4>Apple Store Giftcard</h4>
         </router-link>
-        <router-link class="giftcard-box" to="#">
+        <router-link class="giftcard-box" to="/card">
           <img src="../assets/images/apple_logo.svg" alt="" srcset="" />
           <h4>Apple Store Giftcard</h4>
         </router-link>
-        <router-link class="giftcard-box" to="#">
+        <router-link class="giftcard-box" to="/card">
           <img src="../assets/images/apple_logo.svg" alt="" srcset="" />
           <h4>Apple Store Giftcard</h4>
         </router-link>
