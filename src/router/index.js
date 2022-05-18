@@ -7,6 +7,7 @@ import signinView from "../views/signinView.vue";
 import verifyEmail from "../views/verifyEmail.vue";
 import productCoin from "../views/ProductCoin.vue";
 import productCard from "../views/ProductCard.vue";
+import { getAuth } from "firebase/auth";
 
 const routes = [
   {
@@ -37,11 +38,13 @@ const routes = [
     path: "/signup",
     name: "signup",
     component: signupView,
+    meta: { onlyGuestUser: true },
   },
   {
     path: "/signin",
     name: "signin",
     component: signinView,
+    meta: { onlyGuestUser: true },
   },
   {
     path: "/verify",
@@ -64,5 +67,16 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
 });
-
+router.beforeEach(async (to, _, next) => {
+  const isAuth = await getAuth().currentUser;
+  if (to.meta.onlyGuestUser) {
+    if (isAuth) {
+      next({ name: "home" });
+    } else {
+      next();
+    }
+  } else {
+    next();
+  }
+});
 export default router;
