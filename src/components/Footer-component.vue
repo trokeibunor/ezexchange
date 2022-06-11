@@ -88,6 +88,11 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+$media-desktop: "only screen and (max-width : 1024px)";
+$media-tablet: "only screen and (max-width : 768px)";
+$media-mobile: "only screen and (max-width : 600px)";
+$media-mobile-sm: "only screen and (max-width : 480px)";
+$media-desktop-strict: "only screen and (min-width: 768px) and (max-width: 1024)";
 .newsletter {
   display: grid;
   grid-template-columns: 40% 60%;
@@ -141,6 +146,19 @@ export default {
           align-items: center;
           margin: auto 4px;
         }
+      }
+    }
+  }
+}
+@media #{$media-mobile} {
+  .newsletter {
+    grid-template-columns: none;
+    grid-template-rows: auto auto;
+    form {
+      width: 100%;
+      input[type="email"] {
+        width: 100%;
+        margin: 16px 0px;
       }
     }
   }
@@ -217,6 +235,34 @@ export default {
       justify-content: flex-end;
       a {
         margin-left: 32px;
+      }
+    }
+  }
+}
+@media #{$media-mobile} {
+  .footer {
+    .top-section {
+      width: 85%;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      text-align: left;
+      .row {
+        text-align: left;
+        align-items: flex-start;
+        ul.footer-row {
+          margin: 4px -40px;
+        }
+      }
+    }
+    .bottom-section {
+      width: 100%;
+      grid-template-columns: none;
+      #special-links {
+        margin: 0px !important;
+      }
+      .social-icons {
+        margin-right: 16px;
+        margin-bottom: 8px;
       }
     }
   }
