@@ -13,7 +13,6 @@
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/vue-fontawesome": "^3.0.0-5",
-    "@tawk.to/tawk-messenger-vue-2": "^1.0.3",
     "@tawk.to/tawk-messenger-vue-3": "^1.0.0",
     "axios": "^0.26.1",
     "bootstrap": "^5.1.3",
