@@ -95,7 +95,7 @@
         </div>
       </div>
     </div>
-    <div class="description-section">
+    <div class="description-section second-desc">
       <div class="Rates-policy">
         <div class="text-holder">
           <h2>Did you say sweet rates?</h2>
@@ -358,6 +358,11 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+$media-desktop: "only screen and (max-width : 1024px)";
+$media-tablet: "only screen and (max-width : 768px)";
+$media-mobile: "only screen and (max-width : 600px)";
+$media-mobile-sm: "only screen and (max-width : 480px)";
+$media-desktop-strict: "only screen and (min-width: 768px) and (max-width: 1024)";
 .hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -410,6 +415,21 @@ export default {
           border: 0.125rem #006fe8 solid;
           color: #006fe8;
           padding: 2px 32px;
+        }
+      }
+    }
+    @media #{$media-mobile} {
+      .btn-rack {
+        width: 100%;
+        justify-content: space-between;
+        a {
+          font-size: 16px;
+          &:first-of-type {
+            padding: 4px 24px;
+          }
+          &:nth-child(2) {
+            padding: 2px 24px;
+          }
         }
       }
     }
@@ -509,6 +529,11 @@ export default {
         }
       }
     }
+    @media #{$media-mobile} {
+      .coin-rack {
+        display: none;
+      }
+    }
   }
   .image-holder {
     justify-content: center;
@@ -516,6 +541,42 @@ export default {
     img {
       width: 90%;
       height: auto;
+    }
+  }
+}
+@media #{$media-mobile} {
+  .hero {
+    margin: 0rem 0px;
+    grid-template-columns: 100% 0%;
+    grid-template-rows: 35vh auto;
+    .text-section {
+      grid-row: 2;
+      h1 {
+        width: 80%;
+        font-size: 32px;
+        line-height: 110%;
+      }
+      p {
+        width: 100%;
+      }
+    }
+    .image-holder {
+      grid-row: 1;
+      // display: none;
+      background: radial-gradient(
+          75.7% 123.46% at 24.3% 51.34%,
+          #073777 5.73%,
+          #0647af 63.02%
+        )
+        /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+      width: 112%;
+      margin: 0px -1.5rem;
+      img {
+        // display: none;
+        width: auto;
+        height: 100%;
+        max-height: 100%;
+      }
     }
   }
 }
@@ -557,6 +618,32 @@ export default {
     }
   }
 }
+@media #{$media-mobile} {
+  .social-proof {
+    height: 15vh;
+    #social_pattern_left {
+      bottom: 110%;
+      right: 20%;
+      display: none;
+    }
+    #social_pattern_right {
+      bottom: 110%;
+      left: 20%;
+      display: none;
+    }
+    .content {
+      width: 100%;
+      .proof {
+        h3 {
+          font-size: 24px;
+        }
+        p {
+          margin-top: -18px;
+        }
+      }
+    }
+  }
+}
 .second-con {
   background-color: #eef2f5;
   .description-section {
@@ -590,6 +677,39 @@ export default {
       }
       #sweet_img {
         margin: auto;
+      }
+      @media #{$media-mobile} {
+        #sweet_img {
+          margin: 0px;
+        }
+      }
+    }
+  }
+}
+@media #{$media-mobile} {
+  .second-con {
+    .description-section {
+      div {
+        grid-template-columns: none;
+        grid-template-rows: 30vh auto;
+        .image-holder {
+          margin: 4rem 0px;
+          width: 100%;
+        }
+      }
+    }
+    .second-desc {
+      grid-template-columns: none;
+      grid-template-rows: 30vh auto;
+      .Rates-policy {
+        .text-holder {
+          grid-row: 2;
+        }
+        .image-holder {
+          margin: 0px;
+          width: 100%;
+          grid-row: 1;
+        }
       }
     }
   }
@@ -651,6 +771,23 @@ export default {
       justify-content: flex-start;
       align-items: center;
       overflow-x: scroll;
+    }
+  }
+}
+@media #{$media-mobile} {
+  .third-con {
+    height: auto;
+    .market-favourites {
+      grid-template-columns: none;
+      grid-template-rows: auto auto;
+      .text-section {
+        height: 100%;
+        margin: 1rem 2rem;
+      }
+      .cards-section {
+        height: auto;
+        margin: 1.5rem 2rem;
+      }
     }
   }
 }
@@ -744,6 +881,26 @@ export default {
     }
   }
 }
+@media #{$media-mobile} {
+  .fourth-con {
+    height: auto;
+    .testimonials {
+      grid-template-columns: none;
+      grid-template-rows: auto auto;
+      .text-section {
+        height: 100%;
+        margin: 1rem 2rem;
+      }
+      .cards-section {
+        height: auto;
+        margin: 1.5rem 2rem;
+        .testimonial-card {
+          margin: 0px 16px 0px 0px;
+        }
+      }
+    }
+  }
+}
 .final-con {
   background-color: #eef2f5;
   h2 {
@@ -782,6 +939,29 @@ export default {
         text-align: left;
         width: 95%;
         margin-bottom: 2.5rem;
+      }
+    }
+  }
+}
+@media #{$media-mobile} {
+  .final-con {
+    .question-holder {
+      grid-template-columns: none;
+      grid-template-rows: auto auto auto auto;
+      text-align: left;
+      .question {
+        #num {
+          padding: 2px 8px;
+        }
+        .title {
+          line-height: 140%;
+        }
+        .answer {
+          margin-bottom: 0rem;
+        }
+        .answer:last-of-type {
+          margin-bottom: 1.5rem;
+        }
       }
     }
   }
