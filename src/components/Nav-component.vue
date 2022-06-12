@@ -176,7 +176,8 @@ $media-desktop-strict: "only screen and (min-width: 768px)";
   display: grid;
   width: 100%;
   grid-template-columns: 20% auto;
-  padding-top: 20px;
+  padding-top: 12px;
+  padding-bottom: 12px;
   .logo {
     display: grid;
     grid-column: 1;
@@ -278,6 +279,7 @@ $media-desktop-strict: "only screen and (min-width: 768px)";
   .mobile-nav {
     position: sticky;
     top: 0;
+    z-index: 50;
     background: #fff;
     width: 100%;
     // margin: 12px auto;
@@ -301,7 +303,7 @@ $media-desktop-strict: "only screen and (min-width: 768px)";
     left: 0;
     overflow: hidden;
     background-color: #f3f5ff;
-    z-index: 1;
+    z-index: 100;
     width: 3/4 * 100vw;
     height: 100%;
     max-height: 100vh;
@@ -336,7 +338,7 @@ $media-desktop-strict: "only screen and (min-width: 768px)";
         a {
           margin: 16px 0px;
           font-size: 20px;
-          font-weight: 600;
+          font-weight: normal;
           line-height: 140%;
           text-decoration: none;
           color: #006fe8;

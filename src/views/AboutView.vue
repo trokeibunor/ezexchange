@@ -1,6 +1,6 @@
 <template>
+  <nav-component />
   <div class="container-fluid" id="about-hero">
-    <nav-component />
     <div class="about-hero">
       <img src="../assets/images/about-hero.png" alt="" srcset="" />
       <div class="text-holder">
@@ -183,6 +183,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+// Media queries
+$media-desktop: "only screen and (max-width : 1024px)";
+$media-tablet: "only screen and (max-width : 768px)";
+$media-mobile: "only screen and (max-width : 600px)";
+$media-mobile-sm: "only screen and (max-width : 480px)";
+$media-desktop-strict: "only screen and (min-width: 768px)";
 h3 {
   background: linear-gradient(170deg, #0f64c1 1.56%, #152a41 140%);
   -webkit-background-clip: text;
@@ -209,6 +215,18 @@ h3 {
       justify-content: flex-start;
       align-content: center;
       text-align: left;
+    }
+  }
+}
+@media #{$media-mobile} {
+  #about-hero {
+    .about-hero {
+      padding: 1rem;
+      grid-template-columns: none;
+      grid-template-rows: auto auto;
+      img {
+        width: 100%;
+      }
     }
   }
 }
@@ -281,6 +299,39 @@ h3 {
     }
   }
 }
+@media #{$media-mobile} {
+  #operation {
+    .operation {
+      margin: 0px 1rem;
+      h3 {
+        width: 220px;
+      }
+      .content {
+        grid-template-columns: none;
+        grid-template-rows: auto auto;
+        .text-content {
+          width: 100%;
+        }
+        img {
+          width: 100%;
+          height: 250px;
+        }
+      }
+    }
+    .beginnings {
+      margin-top: 1.5rem;
+      grid-template-columns: none;
+      grid-template-rows: auto auto;
+      img {
+        width: 100%;
+        height: 250px;
+      }
+      .text-content {
+        grid-row: 1;
+      }
+    }
+  }
+}
 #about-founder {
   background-image: url(../assets/images/about_femi_background.svg);
   background-color: #eef2f5;
@@ -311,6 +362,36 @@ h3 {
         }
         #femi-about {
           font-size: 14px;
+        }
+      }
+    }
+  }
+}
+@media #{$media-mobile} {
+  #about-founder {
+    .about-founder {
+      margin: 0px 0rem;
+      .title {
+        margin-left: 1rem;
+      }
+      .content {
+        grid-template-columns: none;
+        grid-template-rows: auto auto;
+        img {
+          margin: auto;
+        }
+        .text-content {
+          background-color: #0f64c1;
+          width: 100%;
+          h4,
+          p {
+            width: 90%;
+            margin: auto;
+          }
+          p {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+          }
         }
       }
     }
@@ -388,6 +469,21 @@ h3 {
           border: none;
           outline: none;
           font-weight: 500;
+        }
+      }
+    }
+  }
+}
+@media #{$media-mobile} {
+  #contact-us {
+    .contact {
+      margin: 0px 1rem;
+      grid-template-columns: none;
+      grid-template-rows: auto auto;
+      .form-holder {
+        form {
+          width: 100%;
+          height: auto;
         }
       }
     }
