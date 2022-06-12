@@ -1,6 +1,6 @@
 <template>
+  <nav-component />
   <div class="container-fluid" id="wrapper">
-    <nav-component />
     <!-- alert Box -->
     <div class="grid">
       <div>
@@ -176,6 +176,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$media-desktop: "only screen and (max-width : 1024px)";
+$media-tablet: "only screen and (max-width : 768px)";
+$media-mobile: "only screen and (max-width : 600px)";
+$media-mobile-sm: "only screen and (max-width : 480px)";
+$media-desktop-strict: "only screen and (min-width: 768px)";
 .alert {
   display: block;
   position: absolute;
@@ -316,6 +321,25 @@ export default {
         text-decoration: none;
         font-weight: 600;
         color: #4093ee;
+      }
+    }
+  }
+}
+@media #{$media-mobile} {
+  #wrapper {
+    background: #dbdbdb;
+    .grid {
+      grid-template-columns: none;
+      grid-template-rows: auto;
+      .signup-form {
+        grid-row: 1;
+        form {
+          width: 75%;
+          align-items: center;
+        }
+        .last-text {
+          width: 75%;
+        }
       }
     }
   }

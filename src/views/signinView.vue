@@ -132,6 +132,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$media-desktop: "only screen and (max-width : 1024px)";
+$media-tablet: "only screen and (max-width : 768px)";
+$media-mobile: "only screen and (max-width : 600px)";
+$media-mobile-sm: "only screen and (max-width : 480px)";
+$media-desktop-strict: "only screen and (min-width: 768px)";
 #wrapper {
   width: 100%;
   height: 100vh;
@@ -315,6 +320,25 @@ export default {
         text-decoration: none;
         font-weight: 600;
         color: #4093ee;
+      }
+    }
+  }
+}
+@media #{$media-mobile} {
+  #wrapper {
+    background: #dbdbdb;
+    .grid {
+      grid-template-columns: none;
+      grid-template-rows: auto;
+      .signin-form {
+        grid-row: 1;
+        form {
+          width: 75%;
+          align-items: center;
+        }
+        .last-text {
+          width: 75%;
+        }
       }
     }
   }
