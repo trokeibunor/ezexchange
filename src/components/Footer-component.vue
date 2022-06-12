@@ -31,7 +31,7 @@
           <h3>Ready to get Started?</h3>
           <router-link to="#" id="cta_footer">Get Started</router-link>
         </div>
-        <div class="row">
+        <div class="row rightys">
           <p class="title">Services</p>
           <ul class="footer-row">
             <li>Email Marketing</li>
@@ -48,7 +48,7 @@
             <li>Team</li>
           </ul>
         </div>
-        <div class="row">
+        <div class="row rightys">
           <p class="title">Help</p>
           <ul class="footer-row">
             <li>FAQs</li>
@@ -253,12 +253,16 @@ $media-desktop-strict: "only screen and (min-width: 768px) and (max-width: 1024)
           margin: 4px -40px;
         }
       }
+      .rightys {
+        margin-left: 32px;
+      }
     }
     .bottom-section {
       width: 100%;
       grid-template-columns: none;
       #special-links {
         margin: 0px !important;
+        padding: 0px 0px 0px 16px;
       }
       .social-icons {
         margin-right: 16px;

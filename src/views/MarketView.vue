@@ -1,6 +1,6 @@
 <template>
+  <nav-component />
   <div class="hero">
-    <nav-component />
     <section class="market-hero">
       <div class="left">
         <img src="../assets/images/big_search_logo.png" alt="" srcset="" />
@@ -129,10 +129,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$media-desktop: "only screen and (max-width : 1024px)";
+$media-tablet: "only screen and (max-width : 768px)";
+$media-mobile: "only screen and (max-width : 600px)";
+$media-mobile-sm: "only screen and (max-width : 480px)";
+$media-desktop-strict: "only screen and (min-width: 768px) and (max-width: 1024)";
 .hero {
   background-image: url(../assets/images/market_pattern.svg);
   width: 100%;
   height: 57vh;
+}
+@media #{$media-mobile} {
+  .hero {
+    height: 30vh;
+  }
 }
 .market-hero {
   display: grid;
@@ -175,6 +185,23 @@ export default {
         border-radius: 5px;
         font-size: 14px;
         font-weight: 600;
+      }
+    }
+  }
+}
+@media #{$media-mobile} {
+  .market-hero {
+    grid-template-columns: none;
+    padding-top: 10vh;
+    .left {
+      display: none;
+    }
+    .right {
+      justify-content: center;
+
+      form {
+        width: 75%;
+        align-items: center;
       }
     }
   }
@@ -257,9 +284,44 @@ export default {
     }
   }
 }
+@media #{$media-mobile} {
+  .giftcard-section {
+    margin: 0px 1rem;
+    .header {
+      h3 {
+        font-size: 16px;
+        margin: 24px 0px;
+        width: 200px;
+      }
+      a {
+        font-size: 16px;
+      }
+    }
+    .content-box {
+      margin: 16px auto;
+      grid-template-columns: 1fr 1fr;
+      grid-row-gap: 16px;
+      grid-column-gap: 16px;
+      .giftcard-box {
+        width: 100%;
+      }
+    }
+  }
+}
 #coin-table {
   // background-color: #006fe8;
   background-image: url(../assets/images/market_pattern.svg);
+}
+@media #{$media-mobile} {
+  .coin-table {
+    margin: 0px 1rem;
+    .header {
+      h3 {
+        margin: 24px 0px !important;
+        font-size: 16px;
+      }
+    }
+  }
 }
 .coin-table {
   margin: 0px 2rem;
