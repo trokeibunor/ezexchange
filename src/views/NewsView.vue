@@ -334,6 +334,18 @@ $media-desktop-strict: "only screen and (min-width: 768px) and (max-width: 1024)
       }
     }
   }
+  @media #{$media-mobile} {
+    .latest {
+      margin: 0px 1rem;
+      .content {
+        grid-template-columns: none;
+        grid-template-rows: auto auto;
+        p {
+          width: 100%;
+        }
+      }
+    }
+  }
 }
 #resources {
   background-color: #eef2f5;
@@ -370,6 +382,14 @@ $media-desktop-strict: "only screen and (min-width: 768px) and (max-width: 1024)
     grid-template-rows: auto;
     justify-items: center;
     align-items: center;
+  }
+  @media #{$media-mobile} {
+    .resources {
+      margin: 0px 1rem;
+    }
+    .content {
+      grid-gap: 8px;
+    }
   }
 }
 </style>

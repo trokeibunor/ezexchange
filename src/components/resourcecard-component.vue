@@ -16,6 +16,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$media-desktop: "only screen and (max-width : 1024px)";
+$media-tablet: "only screen and (max-width : 768px)";
+$media-mobile: "only screen and (max-width : 600px)";
+$media-mobile-sm: "only screen and (max-width : 480px)";
+$media-desktop-strict: "only screen and (min-width: 768px) and (max-width: 1024)";
 .resource-card {
   background: #fff;
   border-radius: 10px;
@@ -53,6 +58,26 @@ export default {
     }
     a:hover {
       color: #006fe8;
+    }
+  }
+}
+@media #{$media-mobile} {
+  .resource-card {
+    width: auto;
+    height: auto;
+    flex-direction: column;
+    img {
+      width: 100%;
+      height: auto;
+    }
+    .text-holder {
+      h3 {
+        font-size: 14px;
+      }
+      p,
+      a {
+        font-size: 12px;
+      }
     }
   }
 }
