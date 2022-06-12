@@ -327,7 +327,7 @@ $media-desktop-strict: "only screen and (min-width: 768px)";
 }
 @media #{$media-mobile} {
   #wrapper {
-    background: #dbdbdb;
+    background: #fff;
     .grid {
       grid-template-columns: none;
       grid-template-rows: auto;
