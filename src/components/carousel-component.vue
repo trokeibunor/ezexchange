@@ -1,7 +1,7 @@
 <template>
   <Carousel>
     <template #slides>
-      <Slide v-for="image in images" :key="image.id">
+      <Slide v-for="image in images" :key="image.id" :breakpoints="breakpoints">
         <img :src="image.url" />
         <div class="holder">
           <h3>Highlight</h3>
@@ -38,13 +38,30 @@ export default defineComponent({
     const { images } = toRefs(props);
 
     const deleteImage = (index) => emit("delete-image", index);
+    const breakpoints = {
+      // 700px and up
+      700: {
+        itemsToShow: 1,
+        snapAlign: "center",
+      },
+      // 1024 and up
+      1024: {
+        itemsToShow: 1,
+        snapAlign: "start",
+      },
+    };
 
     // eslint-disable-next-line vue/no-dupe-keys
-    return { images, deleteImage };
+    return { images, deleteImage, breakpoints };
   },
 });
 </script>
 <style lang="scss">
+$media-desktop: "only screen and (max-width : 1024px)";
+$media-tablet: "only screen and (max-width : 768px)";
+$media-mobile: "only screen and (max-width : 600px)";
+$media-mobile-sm: "only screen and (max-width : 480px)";
+$media-desktop-strict: "only screen and (min-width: 768px) and (max-width: 1024)";
 img {
   border-radius: 10px;
 }
@@ -163,6 +180,48 @@ img {
   grid-template-columns: 50% 50%;
   justify-content: center;
   align-items: center;
+}
+@media #{$media-mobile} {
+  .carousel__slide {
+    grid-template-columns: none;
+    grid-template-rows: auto auto;
+    justify-items: center;
+    justify-content: start;
+    img {
+      width: 100%;
+      height: 200px;
+    }
+  }
+  .carousel__prev {
+    top: 15%;
+    left: -4%;
+    transform: translate(-0%, -100%);
+  }
+
+  .carousel__next {
+    top: 10.5%;
+    right: -13%;
+    transform: translate(-100%, -0%);
+  }
+  .carousel__pagination {
+    padding: 0px;
+  }
+  .carousel--rtl .carousel__prev {
+    left: auto;
+    right: 0;
+    transform: translate(-0%, -100%);
+  }
+
+  .carousel--rtl .carousel__next {
+    right: auto;
+    left: 0;
+    transform: translate(-100%, -0%);
+  }
+  .holder {
+    p {
+      width: 100%;
+    }
+  }
 }
 .holder {
   text-align: left;

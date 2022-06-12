@@ -172,6 +172,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$media-desktop: "only screen and (max-width : 1024px)";
+$media-tablet: "only screen and (max-width : 768px)";
+$media-mobile: "only screen and (max-width : 600px)";
+$media-mobile-sm: "only screen and (max-width : 480px)";
+$media-desktop-strict: "only screen and (min-width: 768px) and (max-width: 1024)";
 #highlights {
   margin: 4px 0px 0px 0px;
   background-color: #eef2f5;
@@ -179,6 +184,11 @@ export default {
 .highlight {
   margin: 4px 4rem;
   padding: 1.5rem 0px;
+}
+@media #{$media-mobile} {
+  .highlight {
+    margin: 4px 1rem;
+  }
 }
 #featured {
   background-color: #eef2f5;
