@@ -277,15 +277,22 @@ $media-desktop-strict: "only screen and (min-width: 768px)";
   }
   .mobile-nav {
     position: sticky;
-    width: 90%;
-    margin: 20px auto;
+    top: 0;
+    background: #fff;
+    width: 100%;
+    // margin: 12px auto;
+    padding: 12px 0px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    .logo {
+      margin-left: 20px;
+    }
     #sidebar-open {
       color: #0155dc;
       font-size: 24px;
+      margin-right: 20px;
     }
   }
   .mobile-side {

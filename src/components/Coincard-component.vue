@@ -26,6 +26,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$media-desktop: "only screen and (max-width : 1024px)";
+$media-tablet: "only screen and (max-width : 768px)";
+$media-mobile: "only screen and (max-width : 600px)";
+$media-mobile-sm: "only screen and (max-width : 480px)";
+$media-desktop-strict: "only screen and (min-width: 768px) and (max-width: 1024)";
 .coin-card {
   width: 11rem;
   height: 11rem;
@@ -91,6 +96,19 @@ export default {
         text-align: center;
         text-decoration: none;
         color: #fff;
+      }
+    }
+  }
+}
+@media #{$media-mobile} {
+  .coin-card {
+    width: auto;
+    height: auto;
+    margin-right: 16px;
+    .bottom {
+      a {
+        width: 7.5rem;
+        padding: 8px;
       }
     }
   }

@@ -312,17 +312,6 @@ $media-desktop-strict: "only screen and (min-width: 768px) and (max-width: 1024)
   // background-color: #006fe8;
   background-image: url(../assets/images/market_pattern.svg);
 }
-@media #{$media-mobile} {
-  .coin-table {
-    margin: 0px 1rem;
-    .header {
-      h3 {
-        margin: 24px 0px !important;
-        font-size: 16px;
-      }
-    }
-  }
-}
 .coin-table {
   margin: 0px 2rem;
   color: #0d1b1e;
@@ -357,6 +346,23 @@ $media-desktop-strict: "only screen and (min-width: 768px) and (max-width: 1024)
     align-items: center;
     margin: 2rem auto;
     color: #0d1b1e;
+  }
+}
+@media #{$media-mobile} {
+  .coin-table {
+    margin: 0px 1rem;
+    .header {
+      h3 {
+        margin: 24px 0px !important;
+        font-size: 16px;
+      }
+    }
+    .content {
+      grid-template-columns: 1fr 1fr;
+      margin: 1rem auto;
+      grid-row-gap: 16px;
+      padding-left: 1rem;
+    }
   }
 }
 </style>
