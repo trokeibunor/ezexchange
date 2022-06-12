@@ -1,6 +1,6 @@
 <template>
+  <nav-component />
   <div class="container-fluid" id="content">
-    <nav-component />
     <div class="content">
       <div id="title">
         <!-- Company logo -->
@@ -66,11 +66,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$media-desktop: "only screen and (max-width : 1024px)";
+$media-tablet: "only screen and (max-width : 768px)";
+$media-mobile: "only screen and (max-width : 600px)";
+$media-mobile-sm: "only screen and (max-width : 480px)";
+$media-desktop-strict: "only screen and (min-width: 768px)";
 #content {
   background-color: #eef2f5;
 }
 .content {
   margin: 1.5rem 4rem 0rem 4rem;
+}
+@media #{$media-mobile} {
+  .content {
+    margin: 1rem;
+  }
 }
 #title {
   display: flex;
@@ -166,6 +176,15 @@ export default {
         border-radius: 5px;
       }
     }
+  }
+}
+@media #{$media-mobile} {
+  .grid-hold {
+    grid-template-columns: none;
+    grid-template-rows: 45vh auto;
+  }
+  #note {
+    font-size: 11px;
   }
 }
 </style>
