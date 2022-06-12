@@ -18,6 +18,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$media-desktop: "only screen and (max-width : 1024px)";
+$media-tablet: "only screen and (max-width : 768px)";
+$media-mobile: "only screen and (max-width : 600px)";
+$media-mobile-sm: "only screen and (max-width : 480px)";
+$media-desktop-strict: "only screen and (min-width: 768px) and (max-width: 1024)";
 .article-card {
   text-decoration: none;
   margin: 8px 0px;
@@ -46,7 +51,23 @@ export default {
     }
   }
 }
-:hover {
+@media #{$media-mobile} {
+  .article-card {
+    width: auto;
+    height: auto;
+    padding: 8px;
+    img {
+      border-radius: 8px;
+    }
+    .title {
+      font-size: 12px;
+    }
+    .info-block {
+      font-size: 12px;
+    }
+  }
+}
+.article-card:hover {
   box-shadow: 4px 1px 10px -4px rgba(0, 0, 0, 0.301);
 }
 </style>

@@ -228,6 +228,23 @@ $media-desktop-strict: "only screen and (min-width: 768px) and (max-width: 1024)
       }
     }
   }
+  @media #{$media-mobile} {
+    .latest {
+      margin: 0px 1rem;
+      .header {
+        h3 {
+          width: 200px;
+        }
+      }
+      .content {
+        grid-template-columns: none;
+        grid-template-rows: auto auto;
+        p {
+          width: 100%;
+        }
+      }
+    }
+  }
 }
 #latest {
   width: 100%;
@@ -266,6 +283,15 @@ $media-desktop-strict: "only screen and (min-width: 768px) and (max-width: 1024)
       justify-content: center;
       align-items: center;
       justify-items: center;
+    }
+  }
+  @media #{$media-mobile} {
+    .latest {
+      margin: 0px 1rem;
+      .articles {
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 8px;
+      }
     }
   }
 }
