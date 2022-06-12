@@ -1,6 +1,6 @@
 <template>
+  <nav-component />
   <div class="container-fluid" id="content">
-    <nav-component />
     <div class="content">
       <!-- Title -->
       <div id="title">
