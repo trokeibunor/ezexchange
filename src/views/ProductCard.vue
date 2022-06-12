@@ -184,6 +184,8 @@ $media-desktop-strict: "only screen and (min-width: 768px)";
     grid-template-rows: 45vh auto;
   }
   #note {
+    width: 95%;
+    margin: auto;
     font-size: 11px;
   }
 }

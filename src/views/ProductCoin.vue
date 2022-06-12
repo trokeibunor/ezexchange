@@ -113,11 +113,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$media-desktop: "only screen and (max-width : 1024px)";
+$media-tablet: "only screen and (max-width : 768px)";
+$media-mobile: "only screen and (max-width : 600px)";
+$media-mobile-sm: "only screen and (max-width : 480px)";
+$media-desktop-strict: "only screen and (min-width: 768px)";
 #content {
   background-color: #eef2f5;
 }
 .content {
   margin: 2rem 4rem 0rem 4rem;
+}
+@media #{$media-mobile} {
+  .content {
+    margin: 1rem;
+  }
 }
 #title {
   display: flex;
@@ -197,5 +207,10 @@ export default {
       }
     }
   }
+}
+.grid-hold {
+  margin-top: 1rem;
+  grid-template-columns: none;
+  grid-template-rows: 55vh auto;
 }
 </style>
