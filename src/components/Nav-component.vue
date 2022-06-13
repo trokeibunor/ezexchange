@@ -270,6 +270,9 @@ $media-desktop-strict: "only screen and (min-width: 768px)";
   .mobile-nav {
     display: none;
   }
+  #logport {
+    display: none;
+  }
 }
 // Responsive sizing
 @media #{$media-mobile} {
@@ -281,6 +284,7 @@ $media-desktop-strict: "only screen and (min-width: 768px)";
     top: 0;
     z-index: 50;
     background: #fff;
+    box-shadow: 0px 2px 2px 1px #0d1b1e15;
     width: 100%;
     // margin: 12px auto;
     padding: 12px 0px;
@@ -302,7 +306,8 @@ $media-desktop-strict: "only screen and (min-width: 768px)";
     top: 0;
     left: 0;
     overflow: hidden;
-    background-color: #f3f5ff;
+    box-shadow: 0px 4px 10px 1px #0d1b1e15;
+    background-color: #fff;
     z-index: 100;
     width: 3/4 * 100vw;
     height: 100%;
@@ -314,7 +319,7 @@ $media-desktop-strict: "only screen and (min-width: 768px)";
       flex-direction: column;
       align-items: flex-start;
       column-gap: 10px;
-      padding: 20px 20px;
+      padding: 12px 20px;
       form {
         margin-top: 32px;
         width: 90%;
@@ -348,16 +353,16 @@ $media-desktop-strict: "only screen and (min-width: 768px)";
     .bottom {
       display: grid;
       grid-row: 2;
-      background-color: #fff;
+      background: linear-gradient(0deg, #0155dc 38.39%, #006fe8 66.76%);
       align-items: center;
       .login_btn {
-        color: #006fe8;
+        color: #fff;
         margin: auto 0px;
         display: flex;
         flex-direction: row;
         align-self: center;
         padding-left: 20px;
-        font-weight: 600;
+        font-weight: 500;
         font-size: 20px;
         text-decoration: none;
         img#notAuth {

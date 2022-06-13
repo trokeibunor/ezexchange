@@ -117,11 +117,11 @@ $media-desktop-strict: "only screen and (min-width: 768px) and (max-width: 1024)
       align-items: flex-start;
       flex-wrap: wrap;
       input[type="email"] {
-        border: 3px solid #e0e0e0;
+        border: 1px solid #e0e0e0;
         box-sizing: border-box;
         /* Form inner shadow */
 
-        box-shadow: inset 0px 0px 6px rgba(0, 0, 0, 0.1);
+        box-shadow: inset 0px 0px 2px rgba(0, 0, 0, 0.1);
         border-radius: 10px;
         width: 90%;
         padding: 16px 16px;
@@ -233,8 +233,12 @@ $media-desktop-strict: "only screen and (min-width: 768px) and (max-width: 1024)
       flex-direction: row;
       list-style: none;
       justify-content: flex-end;
+      margin-bottom: 16px;
       a {
         margin-left: 32px;
+        img {
+          border-radius: 0px;
+        }
       }
     }
   }
@@ -266,7 +270,7 @@ $media-desktop-strict: "only screen and (min-width: 768px) and (max-width: 1024)
       }
       .social-icons {
         margin-right: 16px;
-        margin-bottom: 8px;
+        margin-bottom: 16px;
       }
     }
   }
