@@ -332,6 +332,11 @@ $media-desktop-strict: "only screen and (min-width: 768px)";
       grid-template-rows: auto;
       .signin-form {
         grid-row: 1;
+        #gmailbtn,
+        #facebookbtn {
+          width: 100px;
+          background: #4094ee2f;
+        }
         form {
           width: 75%;
           align-items: center;

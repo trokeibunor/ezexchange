@@ -331,6 +331,11 @@ $media-desktop-strict: "only screen and (min-width: 768px)";
     .grid {
       grid-template-columns: none;
       grid-template-rows: auto;
+      #gmailbtn,
+      #facebookbtn {
+        width: 100px;
+        background: #4094ee2f;
+      }
       .signup-form {
         grid-row: 1;
         form {
