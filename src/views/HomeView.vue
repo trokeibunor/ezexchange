@@ -569,7 +569,7 @@ $media-desktop-strict: "only screen and (min-width: 768px) and (max-width: 1024)
           #0647af 63.02%
         )
         /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
-      width: 112%;
+      width: 113%;
       margin: 0px -1.5rem;
       img {
         // display: none;

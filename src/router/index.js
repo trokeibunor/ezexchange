@@ -7,6 +7,7 @@ import signinView from "../views/signinView.vue";
 import verifyEmail from "../views/verifyEmail.vue";
 import productCoin from "../views/ProductCoin.vue";
 import productCard from "../views/ProductCard.vue";
+import forgotPasswordVue from "@/views/forgotPassword.vue";
 import { getAuth } from "firebase/auth";
 
 const routes = [
@@ -60,6 +61,11 @@ const routes = [
     path: "/card",
     name: "productCard",
     component: productCard,
+  },
+  {
+    path: "/forgotPassword",
+    name: "ForgotPassword",
+    component: forgotPasswordVue,
   },
 ];
 
