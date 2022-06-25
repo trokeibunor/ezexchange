@@ -1,4 +1,42 @@
 <template>
+  <div class="requestCoinModal modal" v-if="coinModal">
+    <div class="request-box">
+      <p class="cancel" @click="coinModal = false">&#10006;</p>
+      <div class="content">
+        <h3>Request Availability of Coin</h3>
+        <p>
+          We are always updating our catalogue as time goes on to serve you
+          better, If you notice that a certain giftcard or coin is unavailable
+          on our site please we would love you to fill in the nameof the coin in
+          the field below and we would update you once we add the coin to our
+          catalogue
+        </p>
+        <form @submit.prevent="submitCoin">
+          <input type="text" id="coin-request" v-model="coinRequest" />
+          <button>Submit Request</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="requestTokenModal modal" v-if="giftModal">
+    <div class="request-box">
+      <p class="cancel" @click="giftModal = false">&#10006;</p>
+      <div class="content">
+        <h3>Request Availability of GiftCard</h3>
+        <p>
+          We are always updating our catalogue as time goes on to serve you
+          better, If you notice that a certain giftcard is unavailable on our
+          site please we would love you to fill in the nameof the coin in the
+          field below and we would update you once we add the coin to our
+          catalogue
+        </p>
+        <form @submit.prevent="submitToken">
+          <input type="text" id="coin-request" v-model="giftRequest" />
+          <button>Submit Request</button>
+        </form>
+      </div>
+    </div>
+  </div>
   <nav-component />
   <div class="hero">
     <section class="market-hero">
@@ -50,7 +88,7 @@
     <div class="giftcard-section">
       <div class="header">
         <h3>Our Giftcard Section</h3>
-        <a href="#">Request Giftcard</a>
+        <a @click="giftModal = true">Request Giftcard</a>
       </div>
       <div class="content-box">
         <router-link class="giftcard-box" to="/card">
@@ -92,7 +130,7 @@
     <div class="coin-table">
       <div class="header">
         <h3>Our Token Catalogue</h3>
-        <a href="#">Request Coin?</a>
+        <a @click="coinModal = true">Request Coin?</a>
       </div>
       <div class="content">
         <coincard-component />
@@ -118,12 +156,45 @@
 import navComponent from "../components/Nav-component.vue";
 import footerComponent from "../components/Footer-component.vue";
 import coincardComponent from "../components/Coincard-component.vue";
+import { useToast } from "vue-toastification";
 export default {
   name: "MarketView",
+  data() {
+    return {
+      coinModal: false,
+      giftModal: false,
+      coinRequest: "",
+      giftRequest: "",
+    };
+  },
   components: {
     navComponent,
     footerComponent,
     coincardComponent,
+  },
+  methods: {
+    submitCoin() {
+      if (this.coinRequest == "") {
+        const toast = useToast();
+        toast.error("Can't submit Empty Input");
+      } else {
+        const toast = useToast();
+        toast.info("Your Request Has been submitted");
+        // Save Data to database
+        this.coinModal = false;
+      }
+    },
+    submitToken() {
+      if (this.giftRequest == "") {
+        const toast = useToast();
+        toast.error("Can't submit Empty Input");
+      } else {
+        const toast = useToast();
+        toast.info("Your Request Has been submitted");
+        // Save Data to database
+        this.giftModal = false;
+      }
+    },
   },
 };
 </script>
@@ -134,6 +205,68 @@ $media-tablet: "only screen and (max-width : 768px)";
 $media-mobile: "only screen and (max-width : 600px)";
 $media-mobile-sm: "only screen and (max-width : 480px)";
 $media-desktop-strict: "only screen and (min-width: 768px) and (max-width: 1024)";
+.modal {
+  position: fixed;
+  z-index: 999;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  top: 25%;
+  left: 32.5%;
+  width: 35%;
+  .request-box {
+    .cancel {
+      float: right;
+      cursor: pointer;
+      color: rgba(255, 0, 0, 0.575);
+    }
+    background-color: #fff;
+    border-radius: 8px;
+    text-align: center;
+    padding: 16px;
+    box-shadow: 100px 100px 50px 100vh rgba(0, 0, 0, 0.199);
+    form {
+      display: flex;
+      flex-direction: column;
+      input {
+        height: 24px;
+        border-radius: 8px;
+        padding: 8px 16px;
+        border: 2px solid #e0e0e0;
+        margin-bottom: 8px;
+        outline: none;
+      }
+      button {
+        cursor: pointer;
+        display: flex;
+        background: linear-gradient(0deg, #0155dc 38.39%, #006fe8 66.76%);
+        /* Shadow one */
+        box-shadow: 0px 2px 4px -2px #0647af;
+        border-radius: 4px;
+        width: fit-content;
+        height: fit-content;
+        padding: 8px 16px;
+        border: none;
+        color: white;
+        font-weight: 600;
+      }
+      button:hover {
+        background: #0070e8dc;
+      }
+    }
+  }
+}
+@media #{$media-mobile} {
+  .modal {
+    top: 25%;
+    left: 5%;
+    width: 90%;
+    .request-box {
+      .cancel {
+      }
+    }
+  }
+}
 .hero {
   background-image: url(../assets/images/market_pattern.svg);
   width: 100%;
