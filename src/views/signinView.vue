@@ -46,7 +46,7 @@
               <p id="remember">Remember Me</p>
             </div>
             <div class="recoverPass">
-              <router-link to="#">Recover Password</router-link>
+              <router-link to="/forgotPassword">Recover Password</router-link>
             </div>
           </div>
           <button

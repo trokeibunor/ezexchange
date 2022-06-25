@@ -8,6 +8,7 @@ import verifyEmail from "../views/verifyEmail.vue";
 import productCoin from "../views/ProductCoin.vue";
 import productCard from "../views/ProductCard.vue";
 import forgotPasswordVue from "@/views/forgotPassword.vue";
+import articleRenderVue from "../views/articleRender.vue";
 import { getAuth } from "firebase/auth";
 
 const routes = [
@@ -66,6 +67,11 @@ const routes = [
     path: "/forgotPassword",
     name: "ForgotPassword",
     component: forgotPasswordVue,
+  },
+  {
+    path: "/article",
+    name: "articleRender",
+    component: articleRenderVue,
   },
 ];
 
